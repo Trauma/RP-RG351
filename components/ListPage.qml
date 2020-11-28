@@ -261,15 +261,15 @@ import QtQuick 2.12
 
                           Rectangle{
                               id: game_selected
-                              width:game_title.width
+                              width:game_title.width - 5
                               height:game_title.height
                               color:"#936a8e"
                               visible: selected                         
                           }                
                           
                           Text {
-                            id: game_title
-                              text: modelData.title                
+                              id: game_title
+                              text: modelData.title
                               // white, 20px, condensed font
                               color: "white"
                               //font.family: globalFonts.condensed
@@ -277,19 +277,19 @@ import QtQuick 2.12
                               verticalAlignment: Text.AlignVCenter
                               elide: selected ? Text.ElideLeft : Text.ElideRight
                               width: 300
+                              rightPadding: 5
                               
-                              Image {              
+                              Text {
+                                  text: "♥"              
                                   width: 10
-                                  fillMode: Image.PreserveAspectFit
-                                  source: "../assets/icons/heart_solid.svg"
-                                  asynchronous: true     
+                                  height:game_title.height  
                                   visible: modelData.favorite && currentCollection.shortName !== "all-favorites" 
                                   anchors {
                                       left: parent.right; 
                                       top: parent.top;
                                   }
-                                  anchors.topMargin: 7
-                                  anchors.leftMargin: 8
+                                  verticalAlignment: Text.AlignVCenter
+                                  font.pixelSize: 15
                               }    
                               
                           }                          
