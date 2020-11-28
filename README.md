@@ -1,6 +1,6 @@
 # NOTE
 
-This repo is a frok of https://github.com/dragoonDorise/RP-RG351 with added homepage styling for Android
+This repo is a fork of https://github.com/dragoonDorise/RP-RG351 with added homepage styling for Android
 
 <img src="https://raw.githubusercontent.com/akmalhisyam/RP-RG351/main/screenshots/home-android.png">
 
