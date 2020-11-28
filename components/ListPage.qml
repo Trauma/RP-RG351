@@ -275,7 +275,8 @@ import QtQuick 2.12
                               //font.family: globalFonts.condensed
                               font.pixelSize: 20
                               verticalAlignment: Text.AlignVCenter
-                              elide: Text.ElideRight
+                              elide: selected ? Text.ElideLeft : Text.ElideRight
+                              width: 300
                               
                               Image {              
                                   width: 10
