@@ -42,40 +42,6 @@ import QtQuick 2.12
           height: 40
           
           Rectangle{
-            id: header__system
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.topMargin: 0
-            width:  40
-            height: 40  
-            color:"transparent"    
-            visible:false      
-            Image {
-                id: header__system_logo
-                width:parent.width
-                height: parent.width
-                fillMode: Image.PreserveAspectFit
-                //source: "../assets/images/systems/" + currentCollection.shortName + ".png"
-                source: "../assets/images/"+theme.system_icon
-                asynchronous: true
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            
-            
-            Text{
-              text: currentCollection.name
-              anchors.left: header__system_logo.right
-              anchors.leftMargin: 12
-              color: theme.title
-              font.pixelSize: 22
-              anchors.verticalCenter: parent.verticalCenter
-              width:300       
-              elide: Text.ElideRight       
-            }
-          }    
-          
-          Rectangle{
             id: header__filters
             color:"transparent"
             anchors.top: parent.top
