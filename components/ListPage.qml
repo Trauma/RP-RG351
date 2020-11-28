@@ -322,7 +322,7 @@ import QtQuick 2.12
                   if (currentCollection.shortName.includes("all")) {
                       return ""
                   } else {
-                      return ""
+                      return "../assets/images/logos/"+currentCollection.shortName+".png"
                   }
               }
               asynchronous: true      
