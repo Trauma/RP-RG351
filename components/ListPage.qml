@@ -346,11 +346,8 @@ import QtQuick 2.12
 
               asynchronous: true    
               source: {
-                  if (currentCollection.shortName !== "android") {
-                      if (currentCollection.games.get(gameView.currentIndex).assets.screenshots[0]) {
-                          return currentCollection.games.get(gameView.currentIndex).assets.screenshots[0]
-                      }
-                      return ""
+                  if (currentCollection.games.get(gameView.currentIndex).assets.screenshots[0]) {
+                      return currentCollection.games.get(gameView.currentIndex).assets.screenshots[0]
                   }
                   return ""
               }                                                               
