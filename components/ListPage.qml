@@ -264,7 +264,7 @@ import QtQuick 2.12
                               width:game_title.width
                               height:game_title.height
                               color:"#936a8e"
-                              visible: selected ? true : false                          
+                              visible: selected                         
                           }                
                           
                           Text {
