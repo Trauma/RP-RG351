@@ -288,8 +288,8 @@ import QtQuick 2.12
                                       left: parent.right; 
                                       top: parent.top;
                                   }
-                                  anchors.topMargin: 4
-                                  anchors.leftMargin: 4
+                                  anchors.topMargin: 7
+                                  anchors.leftMargin: 8
                               }    
                               
                           }                          
