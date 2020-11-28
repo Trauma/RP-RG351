@@ -318,7 +318,13 @@ import QtQuick 2.12
               width: 200    
               sourceSize { width: 200; }                                    
               fillMode: Image.PreserveAspectCrop
-              source: "../assets/images/logos/"+currentCollection.shortName+".png"
+              source: {
+                  if (currentCollection.shortName.includes("all")) {
+                      return ""
+                  } else {
+                      return ""
+                  }
+              }
               asynchronous: true      
               anchors.top: parent.top   
               anchors.right: parent.right  
