@@ -133,7 +133,8 @@ FocusScope {
     "sega32x": "#52607b",
     "segacd": "#466efd",
     "snes": "#f60116",
-    "wonderswan": "white"
+    "wonderswan": "white",
+    "android": "#658e73"
   }   
     
   function showTitles(){
