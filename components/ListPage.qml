@@ -261,7 +261,7 @@ import QtQuick 2.12
 
                           Rectangle{
                               id: game_selected
-                              width:game_title.width - 5
+                              width:game_title.implicitWidth > 295 ? 295 : game_title.implicitWidth
                               height:game_title.height
                               color:"#936a8e"
                               visible: selected                         
@@ -277,20 +277,33 @@ import QtQuick 2.12
                               verticalAlignment: Text.AlignVCenter
                               elide: selected ? Text.ElideLeft : Text.ElideRight
                               width: 300
-                              rightPadding: 5
                               
+                              Text {
+                                  text: "♥"              
+                                  width: 10
+                                  height:game_title.height  
+                                  visible: modelData.favorite && currentCollection.shortName !== "all-favorites" && game_title.implicitWidth > 295
+                                  anchors {
+                                      left: parent.right;
+                                      top: parent.top;
+                                  }
+                                  verticalAlignment: Text.AlignVCenter
+                                  font.pixelSize: 15
+                              }    
+
                               Text {
                                   text: "♥"              
                                   width: 10
                                   height:game_title.height  
                                   visible: modelData.favorite && currentCollection.shortName !== "all-favorites" 
                                   anchors {
-                                      left: parent.right; 
+                                      left: parent.left;
+                                      leftMargin: parent.implicitWidth + 5; 
                                       top: parent.top;
                                   }
                                   verticalAlignment: Text.AlignVCenter
                                   font.pixelSize: 15
-                              }    
+                              } 
                               
                           }                          
                                              
