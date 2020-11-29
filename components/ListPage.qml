@@ -335,7 +335,7 @@ import QtQuick 2.12
               fillMode: Image.PreserveAspectCrop
               source: {
                   if (currentCollection.shortName.includes("all")) {
-                      return ""
+                      return "../assets/images/logos/"+currentCollection.games.get(gameView.currentIndex).collections.get(0).shortName+".png"
                   } else {
                       return "../assets/images/logos/"+currentCollection.shortName+".png"
                   }
