@@ -9,6 +9,8 @@ This repo is a fork of https://github.com/dragoonDorise/RP-RG351 with some modif
 
     <img src="https://raw.githubusercontent.com/akmalhisyam/RP-RG351/main/screenshots/long-title.gif">
 * Use heart emoji for favourite
+* System logo is shown on Last Played, Favorites & All Games page
+* Some minor layout changes to accomodate changes above
 
 # Retroid Pocket RG351 Theme
 
