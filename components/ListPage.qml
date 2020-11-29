@@ -323,7 +323,6 @@ import QtQuick 2.12
           id:game_details
           width: 250
           color:"transparent"
-          //anchors.left:games.right
           anchors.right: parent.right
           anchors.top: parent.top
           anchors.bottom: parent.bottom
@@ -343,9 +342,7 @@ import QtQuick 2.12
               }
               asynchronous: true      
               anchors.top: parent.top   
-              //anchors.right: parent.right  
-              anchors.topMargin: 40
-              //anchors.rightMargin: 20          
+              anchors.topMargin: 40     
               anchors.horizontalCenter: parent.horizontalCenter
               
               visible: currentPage === 'ListPage' ? true : false ;
@@ -357,9 +354,7 @@ import QtQuick 2.12
               height: 250
               fillMode: Image.PreserveAspectFit
               anchors.top:game_details_logo.bottom
-              //anchors.right: parent.right
-              anchors.topMargin: 20
-              //anchors.rightMargin: 20          
+              anchors.topMargin: 20       
 
               asynchronous: true    
               source: {
