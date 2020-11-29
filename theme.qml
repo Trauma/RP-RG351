@@ -134,7 +134,7 @@ FocusScope {
     "segacd": "#466efd",
     "snes": "#f60116",
     "wonderswan": "white",
-    "android": "#658e73"
+    "android": "#82d59e"
   }   
     
   function showTitles(){
