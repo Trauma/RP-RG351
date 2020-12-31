@@ -270,7 +270,13 @@ import QtQuick 2.12
                                       height: 400   
                                       sourceSize { width: 300; }                                    
                                       fillMode: Image.PreserveAspectFit
-                                      source: "../assets/images/mascot/"+modelData.shortName+".png"
+                                      source: {
+                                          if (modelData.shortName.includes("all")) {
+                                              return ""
+                                          } else {
+                                              return "../assets/images/mascot/"+modelData.shortName+".png"
+                                          }
+                                      }
                                       asynchronous: true      
                                       anchors.bottom: parent.bottom                                 
                                       anchors.left: parent.left    
@@ -284,7 +290,13 @@ import QtQuick 2.12
                                       width: 200    
                                       sourceSize { width: 200; }                                    
                                       fillMode: Image.PreserveAspectCrop
-                                      source: "../assets/images/logos/"+modelData.shortName+".png"
+                                      source: {
+                                          if (modelData.shortName.includes("all")) {
+                                              return ""
+                                          } else {
+                                              return "../assets/images/logos/"+modelData.shortName+".png"
+                                          }
+                                      }
                                       asynchronous: true      
                                       anchors.bottom: parent.bottom                                 
                                       anchors.right: parent.right    

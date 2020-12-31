@@ -42,40 +42,6 @@ import QtQuick 2.12
           height: 40
           
           Rectangle{
-            id: header__system
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.topMargin: 0
-            width:  40
-            height: 40  
-            color:"transparent"    
-            visible:false      
-            Image {
-                id: header__system_logo
-                width:parent.width
-                height: parent.width
-                fillMode: Image.PreserveAspectFit
-                //source: "../assets/images/systems/" + currentCollection.shortName + ".png"
-                source: "../assets/images/"+theme.system_icon
-                asynchronous: true
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            
-            
-            Text{
-              text: currentCollection.name
-              anchors.left: header__system_logo.right
-              anchors.leftMargin: 12
-              color: theme.title
-              font.pixelSize: 22
-              anchors.verticalCenter: parent.verticalCenter
-              width:300       
-              elide: Text.ElideRight       
-            }
-          }    
-          
-          Rectangle{
             id: header__filters
             color:"transparent"
             anchors.top: parent.top
@@ -295,35 +261,49 @@ import QtQuick 2.12
 
                           Rectangle{
                               id: game_selected
-                              width:game_title.width
+                              width:game_title.implicitWidth > 295 ? 295 : game_title.implicitWidth
                               height:game_title.height
                               color:"#936a8e"
-                              visible: selected ? true : false                          
+                              visible: selected                         
                           }                
                           
                           Text {
-                            id: game_title
-                              text: modelData.title                
+                              id: game_title
+                              text: modelData.title
                               // white, 20px, condensed font
                               color: "white"
                               //font.family: globalFonts.condensed
                               font.pixelSize: 20
                               verticalAlignment: Text.AlignVCenter
-                              elide: Text.ElideRight
+                              elide: selected ? Text.ElideLeft : Text.ElideRight
+                              width: 300
                               
-                              Image {              
+                              Text {
+                                  text: "♥"              
                                   width: 10
-                                  fillMode: Image.PreserveAspectFit
-                                  source: "../assets/icons/heart_solid.svg"
-                                  asynchronous: true     
-                                  visible: modelData.favorite && currentCollection.shortName !== "all-favorites" 
+                                  height:game_title.height  
+                                  visible: modelData.favorite && currentCollection.shortName !== "all-favorites" && game_title.implicitWidth > 295
                                   anchors {
-                                      left: parent.right; 
+                                      left: parent.right;
                                       top: parent.top;
                                   }
-                                  anchors.topMargin: 4
-                                  anchors.leftMargin: 4
+                                  verticalAlignment: Text.AlignVCenter
+                                  font.pixelSize: 15
                               }    
+
+                              Text {
+                                  text: "♥"              
+                                  width: 10
+                                  height:game_title.height  
+                                  visible: modelData.favorite && currentCollection.shortName !== "all-favorites" 
+                                  anchors {
+                                      left: parent.left;
+                                      leftMargin: parent.implicitWidth + 5; 
+                                      top: parent.top;
+                                  }
+                                  verticalAlignment: Text.AlignVCenter
+                                  font.pixelSize: 15
+                              } 
                               
                           }                          
                                              
@@ -341,23 +321,29 @@ import QtQuick 2.12
         
         Rectangle{
           id:game_details
-          width: parent.width*0.5
+          width: 250
           color:"transparent"
-          anchors.left:games.right
+          anchors.right: parent.right
           anchors.top: parent.top
           anchors.bottom: parent.bottom
+          anchors.rightMargin: 22
           
           Image {
               id: game_details_logo
               width: 200    
               sourceSize { width: 200; }                                    
               fillMode: Image.PreserveAspectCrop
-              source: "../assets/images/logos/"+currentCollection.shortName+".png"
+              source: {
+                  if (currentCollection.shortName.includes("all")) {
+                      return "../assets/images/logos/"+currentCollection.games.get(gameView.currentIndex).collections.get(0).shortName+".png"
+                  } else {
+                      return "../assets/images/logos/"+currentCollection.shortName+".png"
+                  }
+              }
               asynchronous: true      
               anchors.top: parent.top   
-              anchors.right: parent.right  
-              anchors.topMargin: 40
-              anchors.rightMargin: 20          
+              anchors.topMargin: 40     
+              anchors.horizontalCenter: parent.horizontalCenter
               
               visible: currentPage === 'ListPage' ? true : false ;
           }     
@@ -368,17 +354,12 @@ import QtQuick 2.12
               height: 250
               fillMode: Image.PreserveAspectFit
               anchors.top:game_details_logo.bottom
-              anchors.right: parent.right
-              anchors.topMargin: 20
-              anchors.rightMargin: 20          
+              anchors.topMargin: 20       
 
               asynchronous: true    
               source: {
-                  if (currentCollection.shortName !== "android") {
-                      if (currentCollection.games.get(gameView.currentIndex).assets.screenshots[0]) {
-                          return currentCollection.games.get(gameView.currentIndex).assets.screenshots[0]
-                      }
-                      return ""
+                  if (currentCollection.games.get(gameView.currentIndex).assets.screenshots[0]) {
+                      return currentCollection.games.get(gameView.currentIndex).assets.screenshots[0]
                   }
                   return ""
               }                                                               

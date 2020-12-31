@@ -1,3 +1,17 @@
+# NOTE
+
+This repo is a fork of https://github.com/dragoonDorise/RP-RG351 with some modifications
+
+* Homepage styling for Android
+
+    <img src="https://raw.githubusercontent.com/akmalhisyam/RP-RG351/main/screenshots/home-android.png">
+* The other half of long game title will be shown when selected
+
+    <img src="https://raw.githubusercontent.com/akmalhisyam/RP-RG351/main/screenshots/long-title.gif">
+* Use heart emoji for favourite
+* System logo is shown on Last Played, Favorites & All Games page
+* Some minor layout changes to accomodate changes above
+
 # Retroid Pocket RG351 Theme
 
 <img src="https://raw.githubusercontent.com/dragoonDorise/RP-RG351/main/screenshots/hero.jpg">
